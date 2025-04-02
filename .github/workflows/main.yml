@@ -13,16 +13,16 @@ jobs:
       
     - name: Download ZIP file
       run: |
-        curl -L -o V3.zip "https://github.com/magic-bdg/V3.git"
+        curl -L -o V3-main.zip "https://github.com/magic-bdg/V3/archive/refs/heads/main.zip"
         
     - name: Unzip the file
       run: |
-        unzip V3.zip
+        unzip V3-main.zip
         
     - name: Move contents to root
       run: |
         mv V3/* .
-        rm -rf V3 V3.zip
+        rm -rf V3-main V3-main.zip
         
     - name: Commit and Push changes
       run: |
