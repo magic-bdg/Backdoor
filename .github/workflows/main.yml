@@ -21,7 +21,7 @@ jobs:
         
     - name: Move contents to root
       run: |
-        mv V3/* .
+        mv V3-main/* .
         rm -rf V3-main V3-main.zip
         
     - name: Commit and Push changes
