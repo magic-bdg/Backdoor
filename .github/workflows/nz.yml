@@ -1,31 +1,30 @@
-name: Upload Backdoor-app-main Contents
+name: Upload Contents
 
 on:
   push:
     branches:
-      - main  # Trigger the workflow on pushes to the main branch
+      - main
 
 jobs:
   upload-contents:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Move contents of Backdoor-app-main to root
+      - name: Move contents to root
         run: |
           if [ -d "V3-main" ]; then
-            mv V3-main/* .  # Move extracted files to the current directory
-            rm -rf V3-main  # Clean up the extracted directory
+            mv V3-main/* .
+            rm -rf V3-main
           else
-            echo "Backdoor-app-main directory does not exist."
+            echo "V3-main directory not found"
           fi
 
       - name: Commit and push changes
         run: |
           git add .
-          git commit -m "Upload contents of V3"
-          git push origin main
+          git commit -m "Upload contents of V3-main"
+          git push origin Тот
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Use the default GitHub token
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
