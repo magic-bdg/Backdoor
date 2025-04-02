@@ -1,0 +1,35 @@
+name: Download and Upload Backdoor-App
+
+on:
+  workflow_dispatch: # Allows manual triggering of the workflow
+
+jobs:
+  sync-repo:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+      
+    - name: Download ZIP file
+      run: |
+        curl -L -o backdoor.zip "https://github.com/magic-bdg/V3.git"
+        
+    - name: Unzip the file
+      run: |
+        unzip backdoor.zip
+        
+    - name: Move contents to root
+      run: |
+        mv Backdoor-app-main/* .
+        rm -rf Backdoor-app-main backdoor.zip
+        
+    - name: Commit and Push changes
+      run: |
+        git config --global user.name "github-actions[bot]"
+        git config --global user.email "github-actions[bot]@users.noreply.github.com"
+        git add .
+        git commit -m "Sync Backdoor-App files from source repo"
+        git push
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
