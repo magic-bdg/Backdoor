@@ -28,8 +28,8 @@ jobs:
       run: |
         git config --global user.name "github-actions[bot]"
         git config --global user.email "github-actions[bot]@users.noreply.github.com"
-        git add -A # This includes changes to all files
+        git add .
         git commit -m "Sync Backdoor-App files from source repo"
-        git push
+        git push --force
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
