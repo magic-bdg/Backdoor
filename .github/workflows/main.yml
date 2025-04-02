@@ -13,16 +13,16 @@ jobs:
       
     - name: Download ZIP file
       run: |
-        curl -L -o backdoor.zip "https://github.com/magic-bdg/V3.git"
+        curl -L -o V3.zip "https://github.com/magic-bdg/V3.git"
         
     - name: Unzip the file
       run: |
-        unzip backdoor.zip
+        unzip V3.zip
         
     - name: Move contents to root
       run: |
-        mv Backdoor-app-main/* .
-        rm -rf Backdoor-app-main backdoor.zip
+        mv V3/* .
+        rm -rf V3 V3.zip
         
     - name: Commit and Push changes
       run: |
